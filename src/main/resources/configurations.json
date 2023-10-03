@@ -1,0 +1,7 @@
+{
+  "dbURL": "jdbc:h2:./megasoft_db",
+  "user": "user",
+  "password": "password",
+  "initDbSql": "./src/main/resources/sql/init_db.sql",
+  "populateDbSql":  "./src/main/resources/sql/populate_db.sql"
+}
