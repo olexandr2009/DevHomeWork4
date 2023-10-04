@@ -6,10 +6,7 @@ import org.example.databaseQuery.queryClasses.*;
 
 import java.nio.file.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DatabaseQueryService {
     private static final Map<String,List<String>> COLUMN_NAMES = new HashMap<>();

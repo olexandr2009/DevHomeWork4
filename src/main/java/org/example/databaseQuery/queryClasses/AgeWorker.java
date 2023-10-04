@@ -1,6 +1,7 @@
 package org.example.databaseQuery.queryClasses;
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class AgeWorker {
     private Type type;
@@ -22,6 +23,19 @@ public class AgeWorker {
     }
     public Date getBirthday() {
         return birthday;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AgeWorker ageWorker = (AgeWorker) o;
+        return type == ageWorker.type && Objects.equals(worker_name, ageWorker.worker_name) && Objects.equals(birthday, ageWorker.birthday);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, worker_name, birthday);
     }
 
     @Override
