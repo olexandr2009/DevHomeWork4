@@ -1,5 +1,6 @@
 {
   "dbURL": "jdbc:h2:./megasoft_db",
+  "testDbURL": "jdbc:h2:./test_db",
   "user": "user",
   "password": "password",
   "initDbSql": "./src/main/resources/sql/init_db.sql",

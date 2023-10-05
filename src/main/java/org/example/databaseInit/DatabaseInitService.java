@@ -10,21 +10,22 @@ import java.nio.file.Path;
 
 public class DatabaseInitService {
 
-    public static void initDatabase(Database database){
+    public static void initDatabase(Database database) {
         try {
             String[] sqlScript = Files.readString(
-                                Path.of(new Configurations().getConfigAsString(Configurations.INIT_DB_SQL)),
-                                StandardCharsets.UTF_8
-                             ).split(";");
-            for (String sql:sqlScript){
-                database.executeUpdate(sql +";");
+                    Path.of(Configurations.Configs.getConfigAsString(Configurations.INIT_DB_SQL)),
+                    StandardCharsets.UTF_8
+            ).split(";");
+            for (String sql : sqlScript) {
+                database.executeUpdate(sql + ";");
             }
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
-    public static void main(String[] args){
-        initDatabase(Database.getInstance());
+
+    public static void main(String[] args) {
+        initDatabase(Database.getDefaultDB());
     }
 
 }

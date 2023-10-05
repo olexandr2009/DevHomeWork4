@@ -8,20 +8,21 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class DatabasePopulateService {
-    public static void populate_db(Database database){
+    public static void populate_db(Database database) {
         try {
             String[] sqlScript = Files.readString(
-                    Path.of(new Configurations().getConfigAsString(Configurations.POPULATE_DB_SQL)),
+                    Path.of(Configurations.Configs.getConfigAsString(Configurations.POPULATE_DB_SQL)),
                     StandardCharsets.UTF_8
             ).split(";");
-            for (String sql:sqlScript){
+            for (String sql : sqlScript) {
                 database.executeUpdate(sql + ";");
             }
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
-    public static void main(String[] args){
-        populate_db(Database.getInstance());
+
+    public static void main(String[] args) {
+        populate_db(Database.getDefaultDB());
     }
 }
